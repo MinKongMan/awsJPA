@@ -26,6 +26,9 @@ public class OAuthAttributes {
         this.picture = picture;
     }
 
+
+
+    // OAuth2User에서 반환하는 사용자 정보는 Map이기 때문에 값 하나하나를 변환해야만 한다.
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String,Object> attributes){
         return ofGoogle(userNameAttributeName,attributes);
     }
@@ -40,7 +43,9 @@ public class OAuthAttributes {
                 .build();
     }
 
-
+    // User 엔티티 생성
+    // OAuthAttributes에서 엔티티를 생성하는 시점은 처음 가입할 때
+    // 가입할 때 기본 권한을 GUEST로 주기 위해 role 빌더값에는 ROle.GUEST 사용
     public User toEntity(){
         return User.builder()
                 .name(name)

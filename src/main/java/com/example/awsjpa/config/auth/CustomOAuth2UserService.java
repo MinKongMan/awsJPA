@@ -38,7 +38,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
-        //현재 로그인 진행 중인 서비스를 구분하는 코드
+        // 현재 로그인 진행 중인 서비스를 구분하는 코드
         // 지금은 구글만 사용하는 불필요한 값이지만, 이후 네이버 로그인 연동 시에 네이버 로그인인지, 구글 로그인인지 구분하기 위해 사용
 
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
@@ -58,8 +58,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         httpSession.setAttribute("user",new SessionUser(user));
         // 세션에 사용자 정보를 저장하기 위한 Dto클래스
-        // User클래스를 쓰지 않고 새로 만들어서 쓰는지
-        // User 클래스에 직렬화를 구현하지 않았기 때문에 에러가 발생함.
+        // User클래스를 쓰지 않고 새로 만들어서 쓰는지?
+        // -> User 클래스에 직렬화를 구현하지 않았기 때문에 에러가 발생함.
         // User 클래스는 엔티티기 때문에 직렬화 대상에 자식들까지 포함되니 성능이슈, 부수효과가 발생할 확률이 높다.
         // 따라서 따로 Dto를 만드는 것이 운영 및 유지보수에 도움이 된다.
 

@@ -6,6 +6,20 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+                {{#userName}}
+                <!--userName이 있다면 노출시킴-->
+                <!--if문을 못 쓰기 때문에 true/false로만 판단하여 있다면 노출시키는 방식-->
+                    Logged in as: <span id="user">{{userName}}</span>
+                    <a href="/logout" class="btn btn-info active" role = "button">Logout</a>
+                <!--스프링 시큐리티에서 기본적으로 제공하는 로그아웃 URL-->
+                <!--그래서 별도 controller 구현 필요 X-->
+                {{/userName}}
+                {{^userName}}
+                <!--머스테치에 해당 값이 없을 때 ^키워드 사용-->
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+                <!--마찬가지로 스프링 시큐리티에서 기본적으로 제공하는 로그인 URL-->
+                {{/userName}}
+
             </div>
         </div>
     </div>
