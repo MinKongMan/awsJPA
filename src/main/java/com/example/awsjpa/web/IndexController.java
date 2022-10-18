@@ -1,6 +1,7 @@
 package com.example.awsjpa.web;
 
 import com.example.awsjpa.config.auth.dto.SessionUser;
+import com.example.awsjpa.domain.user.UserRepository;
 import com.example.awsjpa.service.posts.PostsService;
 import com.example.awsjpa.service.posts.pracService;
 import com.example.awsjpa.web.dto.PostsResponseDto;
@@ -25,12 +26,15 @@ public class IndexController {
 
         SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
-        if(user!=null) model.addAttribute("userName",user.getName());
+        if(user!=null) {
+            model.addAttribute("userName",user.getName());
+        }
+
         return "index";
     }
 
     @GetMapping("/posts/save")
-    public String posts(){
+    public String posts(Model model){
         return "posts-save";
     }
 

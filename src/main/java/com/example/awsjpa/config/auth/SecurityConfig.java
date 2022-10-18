@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @RequiredArgsConstructor
-@EnableWebSecurity
+@EnableWebSecurity // 스프링 시큐리티 설정들을 활성화시켜줌
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomOAuth2UserService customOAuth2UserService;
     // 설정 코드
@@ -30,9 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                     .logout()
-                    .logoutSuccessUrl("/")
-                    // 로그아웃에 대한 진입점
-                    // 로그아웃 성공 시 "/"주소로 이동
+                        .logoutSuccessUrl("/")
+                        // 로그아웃에 대한 진입점
+                        // 로그아웃 성공 시 "/"주소로 이동
                 .and()
                     .oauth2Login()
                     // OAuth2 로그인 기능에 대한 여러 설정의 진입점
