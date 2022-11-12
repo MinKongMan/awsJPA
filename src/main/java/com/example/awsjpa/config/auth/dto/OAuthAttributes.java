@@ -33,6 +33,7 @@ public class OAuthAttributes {
         if("naver".equals(registrationId)){ // 네이버인지 판단하는 코드 추가
             return ofNaver("id",attributes);
         }
+        System.out.println("ㅋㅋ");
         return ofGoogle(userNameAttributeName,attributes);
     }
 
@@ -61,11 +62,10 @@ public class OAuthAttributes {
 
     // 네이버 생성자 추가
     public static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> attributes){
-        Map<String, Object> response = (Map<String,Object>) attributes.get("response");
-
+        Map<String, Object> response = (Map<String, Object>) attributes.get("response");
         return OAuthAttributes.builder()
-                .name((String)response.get("name"))
-                .email((String)response.get("email"))
+                .name((String) response.get("name"))
+                .email((String) response.get("email"))
                 .picture((String) response.get("profile_image"))
                 .attributes(response)
                 .nameAttributeKey(userNameAttributeName)

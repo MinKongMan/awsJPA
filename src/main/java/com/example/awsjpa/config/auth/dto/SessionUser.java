@@ -3,9 +3,12 @@ package com.example.awsjpa.config.auth.dto;
 import com.example.awsjpa.domain.user.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
 // 인증된 사용자 정보만 필요
 @Getter
-public class SessionUser {
+public class SessionUser implements Serializable {
     private String name;
     private String email;
     private String picture;
