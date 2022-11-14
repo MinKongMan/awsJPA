@@ -35,6 +35,9 @@ dependencies {
 	// spring-security-oauth2-client와 spring-security-oauth2-jose를 기본적으로 관리리
 
 	implementation 'org.springframework.session:spring-session-jdbc'
+
+	implementation 'org.springframework.security:spring-security-test'
+    // 스프링 시큐리티 테스트를 위한 여러 도구를 지원하는 의존성
 }
 
 tasks.named('test') {
