@@ -9,7 +9,7 @@
                 {{#userName}}
                 <!--userName이 있다면 노출시킴-->
                 <!--if문을 못 쓰기 때문에 true/false로만 판단하여 있다면 노출시키는 방식-->
-                    Logged in as: <span id="user">{{userName}}</span>
+                    Logged in as: <span id="user">{{Name}}</span>
                     <a href="/logout" class="btn btn-info active" role = "button">Logout</a>
                 <!--스프링 시큐리티에서 기본적으로 제공하는 로그아웃 URL-->
                 <!--그래서 별도 controller 구현 필요 X-->
